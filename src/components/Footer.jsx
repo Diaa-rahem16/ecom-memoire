@@ -76,9 +76,6 @@ const Footer = () => {
           </p>
           <p className="!text-gray-400">diaa.rahem@univ-constantine2.dz</p>
         </div>
-        <h1 className="absolute bottom-[-0.10px] right-[0.00px] m-auto !text-white-A700">
-          Soukkantra
-        </h1>
       </div>
       <h1 className=" absolute text-white text-8xl bottom-[10%] right-[3%] font-montserrat font-extrabold ">
         ElMarchi

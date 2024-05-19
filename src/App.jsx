@@ -26,6 +26,8 @@ import UserMangement from "./pages/admin/UserMangement.jsx";
 import AdminQA from "./pages/admin/AdminQA.jsx";
 import ReportTreatment from "./pages/admin/ReportTreatment.jsx";
 import ProductsManagement from "./pages/admin/ProductsManagement.jsx";
+import AdminProfile from "./pages/admin/AdminProfile.jsx";
+import SellerEditProduct from "./pages/seller/SellerEditProduct.jsx";
 function App() {
   const { pathname } = useLocation();
 
@@ -65,6 +67,8 @@ function App() {
         </Route>
         <Route path="/seller/home" element={<SellerHome />}>
           <Route path="store" element={<SellerStore />} />
+          <Route path="edit-product" element={<SellerEditProduct />} />
+
           <Route path="orders" element={<SellerOrders />} />
           <Route
             path="*"
@@ -78,6 +82,7 @@ function App() {
           <Route path="help" element={<AdminQA />} />
           <Route path="about" element={<AboutUs />} />
           <Route path="reports" element={<ReportTreatment />} />
+          <Route path="profile" element={<AdminProfile />} />
           <Route path="product-managemnt" element={<ProductsManagement />} />
           <Route path="*" element={<NotFoundPage dest="/admin/home" />} />
         </Route>

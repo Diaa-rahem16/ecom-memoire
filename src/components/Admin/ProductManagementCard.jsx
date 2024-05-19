@@ -1,14 +1,7 @@
-import React, { useState } from "react";
-import ClientInfo from "../../pages/client/ClientInfo";
-import ClientProfileModal from "../../pages/admin/ClientProfileModal";
-import SellerInfoModal from "../../pages/admin/sellerProfileModel";
+import { useState } from "react";
 const ProductManagementCard = () => {
   const handleConfirmPurchase = () => {
     // Confirm purchase logic here
-  };
-
-  const handleShowInfo = () => {
-    // Edit item logic here
   };
 
   const handleDeleteItem = () => {
@@ -52,6 +45,7 @@ const ProductManagementCard = () => {
           >
             Delete Item
           </button>
+          <ProductModal />
         </div>
       </div>
     </div>
@@ -59,3 +53,156 @@ const ProductManagementCard = () => {
 };
 
 export default ProductManagementCard;
+
+import { useEffect } from "react";
+
+const ProductModal = () => {
+  const productDetails = {
+    images: [
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=1480&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    ],
+    sellerName: "nike",
+    description:
+      "A B&W limited edition of Nike shoes A B&W limited edition of Nike shoes A B&W limited edition of Nike shoes",
+    productName: "Air Force 1",
+    price: "455$",
+    stock: 50,
+    brand: "nike",
+    category: "clothes",
+    miniCategory: "shoes",
+  };
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    };
+
+    if (isOpen) {
+      document.body.classList.add("overflow-hidden");
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.body.classList.remove("overflow-hidden");
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen]);
+
+  return (
+    <>
+      <button
+        onClick={openModal}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        View Product Details
+      </button>
+
+      {isOpen && (
+        <div
+          className="fixed z-10 inset-0 overflow-y-auto flex items-center justify-center "
+          onClick={closeModal}
+        >
+          <div
+            className=" rounded-lg shadow-lg max-w-4xl my-32 overflow-y-auto bg-slate-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="px-6  py-12 ">
+              <div className="flex justify-between items-center mb-6 ">
+                <h2 className="text-3xl font-bold text-gray-800">
+                  {productDetails.productName}
+                </h2>
+                <button
+                  onClick={closeModal}
+                  className="text-gray-500 hover:text-gray-700"
+                >
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <p className="text-lg font-medium text-gray-800">
+                    Seller:{" "}
+                    <span className="text-gray-600">
+                      {productDetails.sellerName}
+                    </span>
+                  </p>
+                  <p className="text-lg font-medium text-gray-800">
+                    Brand:{" "}
+                    <span className="text-gray-600">
+                      {productDetails.brand}
+                    </span>
+                  </p>
+                  <p className="text-lg font-medium text-gray-800">
+                    Price:{" "}
+                    <span className="text-gray-600">
+                      {productDetails.price}
+                    </span>
+                  </p>
+                  <p className="text-lg font-medium text-gray-800">
+                    Stock:{" "}
+                    <span className="text-gray-600">
+                      {productDetails.stock}
+                    </span>
+                  </p>
+                  <p className="text-lg font-medium text-gray-800">
+                    Category:{" "}
+                    <span className="text-gray-600">
+                      {productDetails.category}
+                    </span>
+                  </p>
+                  <p className="text-lg font-medium text-gray-800">
+                    Mini Category:{" "}
+                    <span className="text-gray-600">
+                      {productDetails.miniCategory}
+                    </span>
+                  </p>
+                  <p className="text-lg font-medium text-gray-800">
+                    Description:
+                  </p>
+                  <p className="text-gray-600 text-wrap">
+                    {productDetails.description}
+                  </p>
+                </div>
+                <div className="grid grid-cols-3 gap-4">
+                  {productDetails.images.map((image, index) => (
+                    <img
+                      key={index}
+                      src={image}
+                      alt={`Product Image ${index + 1}`}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};

@@ -1,8 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import {
   Card,
-  Typography,
   List,
   ListItem,
   ListItemPrefix,
@@ -33,45 +31,56 @@ export function DefaultSidebar({ isSidebarOpen }) {
             </ListItemPrefix>
             <Link to="home">Dashboard</Link>
           </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <UsersIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            <Link to="users">Users Management</Link>
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <BsBoxes className="h-5 w-5" />
-            </ListItemPrefix>
-            <Link to="product-managemnt">Product Management</Link>
-            <ListItemSuffix>
-              <Chip
-                value="14"
-                size="sm"
-                variant="ghost"
-                color="blue-gray"
-                className=""
-              />
-            </ListItemSuffix>
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <UserCircleIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            <Link to="profile">Profile</Link>
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <RiExportFill className="h-5 w-5" />
-            </ListItemPrefix>
-            <Link to="reports">Reports</Link>
-          </ListItem>
-          <ListItem>
-            <ListItemPrefix>
-              <PowerIcon className="h-5 w-5" />
-            </ListItemPrefix>
-            <Link to="logout">Log Out</Link>
-          </ListItem>
+
+          <Link to="users">
+            <ListItem>
+              <ListItemPrefix>
+                <UsersIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              Users Management
+            </ListItem>
+          </Link>
+          <Link to="product-managemnt">
+            <ListItem>
+              <ListItemPrefix>
+                <BsBoxes className="h-5 w-5" />
+              </ListItemPrefix>
+              Product Management
+              <ListItemSuffix>
+                <Chip
+                  value="14"
+                  size="sm"
+                  variant="ghost"
+                  color="blue-gray"
+                  className=""
+                />
+              </ListItemSuffix>
+            </ListItem>
+          </Link>
+          <Link to="profile">
+            <ListItem>
+              <ListItemPrefix>
+                <UserCircleIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              Profile
+            </ListItem>
+          </Link>
+          <Link to="reports">
+            <ListItem>
+              <ListItemPrefix>
+                <RiExportFill className="h-5 w-5" />
+              </ListItemPrefix>
+              Reports
+            </ListItem>
+          </Link>
+          <Link to="logout">
+            <ListItem>
+              <ListItemPrefix>
+                <PowerIcon className="h-5 w-5" />
+              </ListItemPrefix>
+              Log Out
+            </ListItem>
+          </Link>
         </List>
       </Card>
     </div>

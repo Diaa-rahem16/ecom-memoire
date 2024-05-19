@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-fixed text-text">
-      <nav className="flex w-full bg-white justify-around py-6 px-4 sm:px-6 md:px-8 lg:px-10  items-center relative">
+    <header className="bg-fixed text-text ">
+      <nav className="flex w-full bg-white justify-around py-6 px-4 sm:px-6 md:px-8 lg:px-10 padding-x items-center relative">
         <Link to="/home">
           <h1 className="text-5xl sm:text-xl md:text-4xl  font-bold font-Palanquin  text-primary">
             ElMerchi

@@ -290,7 +290,7 @@ const ProductPage = () => {
 export default ProductPage;
 const ReviewsSection = ({ reviews }) => {
   return (
-    <div className="border-t border-gray-300 py-6 mt-4">
+    <div className=" py-6 mt-4">
       <h3 className="text-lg font-bold mb-4">Customer Reviews</h3>
       {reviews.map((review) => (
         <div key={review.id} className="mb-4 pt-4">

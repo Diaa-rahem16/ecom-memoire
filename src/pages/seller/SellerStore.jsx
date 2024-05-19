@@ -1,4 +1,4 @@
-import ProductCard from "../../components/ProductCard";
+import SellerProductCard from "../../components/SellerProductCard";
 import Footer from "../../components/Footer.jsx";
 
 import { data } from "../../constantes/index.js";
@@ -94,7 +94,7 @@ const SellerStore = () => {
         <hr />
         <div className="grid-container-2 my-4 padding-x">
           {data.slice(0, 4).map((product, index) => (
-            <ProductCard
+            <SellerProductCard
               key={index}
               imgUrl={product.imgUrl}
               sellerName={product.sellerName}
@@ -105,7 +105,7 @@ const SellerStore = () => {
             />
           ))}
           {/* Corrected props */}
-          <ProductCard
+          <SellerProductCard
             id="" //? data.id
             data={{
               photos:
@@ -116,7 +116,7 @@ const SellerStore = () => {
               price: "2500",
             }}
           />
-          <ProductCard
+          <SellerProductCard
             id="" //? data.id
             data={{
               photos:
@@ -127,7 +127,7 @@ const SellerStore = () => {
               price: "2500",
             }}
           />
-          <ProductCard
+          <SellerProductCard
             id="" //? data.id
             data={{
               photos:
@@ -138,7 +138,7 @@ const SellerStore = () => {
               price: "2500",
             }}
           />
-          <ProductCard
+          <SellerProductCard
             id="" //? data.id
             data={{
               photos:
@@ -149,7 +149,7 @@ const SellerStore = () => {
               price: "2500",
             }}
           />
-          <ProductCard
+          <SellerProductCard
             id="" //? data.id
             data={{
               photos:
@@ -160,7 +160,7 @@ const SellerStore = () => {
               price: "2500",
             }}
           />
-          <ProductCard
+          <SellerProductCard
             id="" //? data.id
             imgUrl={
               "https://th.bing.com/th/id/OIP.jrKrNsvgofEEYALTBxhPlwHaHa?w=195&h=195&c=7&r=0&o=5&dpr=1.6&pid=1.7"

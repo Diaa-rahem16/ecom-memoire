@@ -5,7 +5,6 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import DefaultSidebar from "./Admin/AdminSideBar";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { IconButton } from "@material-tailwind/react";
-import Footer from "../components/Footer";
 const AdminNavBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const toggleSidebar = () => {
@@ -14,7 +13,7 @@ const AdminNavBar = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="pl-44" id="seller-first-nav">
+      <header className="pl-44 bg-slate-200" id="seller-first-nav">
         <nav>
           <ul className="right">
             <li>
@@ -34,7 +33,7 @@ const AdminNavBar = () => {
               </div>
             </li>
             <li>
-              <Link to="/seller/profile">
+              <Link to="profile">
                 <img src="../../public/icons/img_lock.svg" />
               </Link>
             </li>

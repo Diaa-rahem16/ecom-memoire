@@ -1,4 +1,3 @@
-import React from "react";
 import SearchInput from "./SearchBar";
 import { Link } from "react-router-dom";
 import CategoryList from "./HeaderLinks";
@@ -27,6 +26,9 @@ const SearchHeader = () => {
         </div>
       </nav>
       <CategoryList className="" />
+      <div className="w-full h-8 text-xs sm:text-sm md:text-base font-bold bg-secondary  flex justify-center items-center leading-tight">
+        <p>free shipping on all orders over 10000DA</p>
+      </div>
     </header>
   );
 };
