@@ -5,7 +5,6 @@ const AdminLayout = () => {
   return (
     <div>
       <AdminNavbar />
-      <Outlet />
       <Footer />
     </div>
   );

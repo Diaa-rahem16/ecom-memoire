@@ -21,7 +21,11 @@ import ProductDetails from "./components/products/ProductDetails.jsx";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import AdminLayout from "./layouts/AdminLayout.jsx";
-import AdmineHome from "./pages/admin/AdminHome";
+import AdmineHome from "./pages/admin/AdminHome.jsx";
+import UserMangement from "./pages/admin/UserMangement.jsx";
+import AdminQA from "./pages/admin/AdminQA.jsx";
+import ReportTreatment from "./pages/admin/ReportTreatment.jsx";
+import ProductsManagement from "./pages/admin/ProductsManagement.jsx";
 function App() {
   const { pathname } = useLocation();
 
@@ -70,10 +74,12 @@ function App() {
         {/* //? admin pathes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="home" element={<AdmineHome />} />
-          <Route path="sign-in" element={""} />
-          <Route path="register" element={""} />
-          <Route path="register/client" element={""} />
-          <Route path="register/seller" element={""} />
+          <Route path="users" element={<UserMangement />} />
+          <Route path="help" element={<AdminQA />} />
+          <Route path="about" element={<AboutUs />} />
+          <Route path="reports" element={<ReportTreatment />} />
+          <Route path="product-managemnt" element={<ProductsManagement />} />
+          <Route path="*" element={<NotFoundPage dest="/admin/home" />} />
         </Route>
         <Route path="*" element={<NotFoundPage dest="/" />} />
       </Routes>

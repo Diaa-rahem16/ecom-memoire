@@ -1,22 +1,61 @@
+import { useState } from "react";
+import { Link, Outlet } from "react-router-dom";
+import NotificationsModal from "../Modals/NotificationsModal";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+import DefaultSidebar from "./Admin/AdminSideBar";
+import { Bars3Icon } from "@heroicons/react/24/solid";
+import { IconButton } from "@material-tailwind/react";
+import Footer from "../components/Footer";
 const AdminNavBar = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className="flex flex-col">
-      <nav>
-        <div className="bg-gray-800">
-          <div className="container mx-auto">
-            <div className="flex justify-between">
-              <div className="flex space-x-4">
-                <a href="#" className="p-4">
-                  help
-                </a>
-                <a href="#" className="p-4">
-                  About
-                </a>
+    <div className="flex flex-col min-h-screen">
+      <header className="pl-44" id="seller-first-nav">
+        <nav>
+          <ul className="right">
+            <li>
+              <Link to="help">help</Link>
+            </li>
+            <li>
+              <Link to="about">About</Link>
+            </li>
+          </ul>
+          <Link to="/admin/home" className="logo">
+            ElMarchi
+          </Link>
+          <ul className="flex items-center gap-8">
+            <li>
+              <div className="relative">
+                <NotificationsModal />
               </div>
-            </div>
-          </div>
+            </li>
+            <li>
+              <Link to="/seller/profile">
+                <img src="../../public/icons/img_lock.svg" />
+              </Link>
+            </li>
+            <li>
+              <IconButton onClick={toggleSidebar}>
+                <Bars3Icon className="h-6 w-6" />
+              </IconButton>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div className="flex flex-row flex-1">
+        <DefaultSidebar isSidebarOpen={isSidebarOpen} />
+        <div
+          className={`${
+            isSidebarOpen ? "ml-64" : ""
+          } flex-1 transition-all duration-300 ease-in-out`}
+        >
+          <Outlet />
         </div>
-      </nav>
+      </div>
     </div>
   );
 };
